@@ -1,0 +1,64 @@
+sd(c(5,8,12))
+which.min(c(4,1,6))
+sq.root=2
+ls()
+sq.root
+sq_root=4
+sq_root
+ls()
+sq root=2
+demo
+demo()
+colors()
+sd(c(5,8,12))
+which.min(c(4,1,6))
+c(4,1,6)
+min(c(4,1,6))
+which?
+?which
+exit
+quit
+quit()
+poll = read.csv("AnonymityPoll.csv")
+str(poll)#
+summary(poll)
+table($poll$Smartphone)
+table(poll$Smartphone)
+472 + 487
+summary(poll$Smartphone)
+472 + 487 + 43
+table(poll$State, poll$Region)
+table(poll$Internet.Use, poll$Smartphone)
+summary(poll$Internet.Use)
+summary(poll$Smartphone)
+limited = subset(poll,Internet.Use==1 | Smartphone==1)
+summary(limited)
+str(limited)
+470+285+17
+summary(poll$Info.On.Internet)
+?match
+match(poll$Info.On.Internet,11)
+table(match(poll$Info.On.Internet,11))
+table(match(11,poll$Info.On.Internet))
+match(11,poll$Info.On.Internet)
+match(0,poll$Info.On.Internet)
+match(0,poll$Info.On.Internet)
+summary(poll$Info.On.Internet)
+sort(table(poll $Info.On.Internet))
+table(poll$Worry.About.Info)
+386/(386+ 404)
+table(poll$Tried.Masking.Identity)
+table(poll$Tried.Masking.Identity,poll$Anonymity.Possible)
+table(poll$Anonymity.Possible)
+278/(278+ 475)
+table(poll$Tried.Masking.Identity)
+128/(128+ 656)
+table(poll$Privacy.Laws.Effective)
+234/(234+ 660)
+234/(234+ 660)
+summary(poll$Privacy.Laws.Effective)
+table(poll$Privacy.Laws.Effective)
+234 / (234+660)
+table(partial$Privacy.Laws.Effective)
+table(limited$Privacy.Laws.Effective)
+186 / (186+541)

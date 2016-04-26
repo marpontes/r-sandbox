@@ -1,0 +1,91 @@
+sd(c(5,8,12))
+which.min(c(4,1,6))
+sq.root=2
+ls()
+sq.root
+sq_root=4
+sq_root
+ls()
+sq root=2
+demo
+demo()
+colors()
+sd(c(5,8,12))
+which.min(c(4,1,6))
+c(4,1,6)
+min(c(4,1,6))
+which?
+?which
+exit
+quit
+quit()
+monthly average for IBM#
+tapply(IBM$StockPrice,months(IBM$Date),mean,na.rm=TRUE)#
+#
+#Overall average stock price#
+#summary(IBM$StockPrice)#
+#
+#monthly average for GE#
+tapply(GE$StockPrice,months(GE$Date),mean,na.rm=TRUE)#
+#
+#monthly average for CocaCola#
+tapply(CocaCola$StockPrice,months(CocaCola$Date),mean,na.rm=TRUE)#
+#
+#monthly average for ProcterGamble#
+tapply(ProcterGamble$StockPrice,months(ProcterGamble$Date),mean,na.rm=TRUE)#
+#
+#monthly average for Boeing#
+tapply(Boeing$StockPrice,months(Boeing$Date),mean,na.rm=TRUE)
+importing the data frames#
+IBM = read.csv("IBMStock.csv")#
+GE = read.csv("GEStock.csv")#
+CocaCola = read.csv("CocaColaStock.csv")#
+ProcterGamble = read.csv("ProcterGambleStock.csv")#
+Boeing = read.csv("BoeingStock.csv")#
+#
+# Converting the data format#
+IBM$Date = as.Date(IBM$Date, "%m/%d/%y")#
+GE$Date = as.Date(GE$Date, "%m/%d/%y")#
+CocaCola$Date = as.Date(CocaCola$Date, "%m/%d/%y")#
+ProcterGamble$Date = as.Date(ProcterGamble$Date, "%m/%d/%y")#
+Boeing$Date = as.Date(Boeing$Date, "%m/%d/%y")
+importing the data frames#
+IBM = read.csv("IBMStock.csv")#
+GE = read.csv("GEStock.csv")#
+CocaCola = read.csv("CocaColaStock.csv")#
+ProcterGamble = read.csv("ProcterGambleStock.csv")#
+Boeing = read.csv("BoeingStock.csv")#
+#
+# Converting the data format#
+IBM$Date = as.Date(IBM$Date, "%m/%d/%y")#
+GE$Date = as.Date(GE$Date, "%m/%d/%y")#
+CocaCola$Date = as.Date(CocaCola$Date, "%m/%d/%y")#
+ProcterGamble$Date = as.Date(ProcterGamble$Date, "%m/%d/%y")#
+Boeing$Date = as.Date(Boeing$Date, "%m/%d/%y")
+monthly average for IBM#
+tapply(IBM$StockPrice,months(IBM$Date),mean,na.rm=TRUE)#
+#
+#Overall average stock price#
+#summary(IBM$StockPrice)#
+#
+#monthly average for GE#
+tapply(GE$StockPrice,months(GE$Date),mean,na.rm=TRUE)#
+#
+#monthly average for CocaCola#
+tapply(CocaCola$StockPrice,months(CocaCola$Date),mean,na.rm=TRUE)#
+#
+#monthly average for ProcterGamble#
+tapply(ProcterGamble$StockPrice,months(ProcterGamble$Date),mean,na.rm=TRUE)#
+#
+#monthly average for Boeing#
+tapply(Boeing$StockPrice,months(Boeing$Date),mean,na.rm=TRUE)
+tapply(GE$StockPrice,months(GE$Date),mean,na.rm=TRUE)#
+tapply(IBM$StockPrice,months(IBM$Date),mean,na.rm=TRUE)#
+tapply(CocaCola$StockPrice,months(CocaCola$Date),mean,na.rm=TRUE)#
+tapply(ProcterGamble$StockPrice,months(ProcterGamble$Date),mean,na.rm=TRUE)#
+tapply(Boeing$StockPrice,months(Boeing$Date),mean,na.rm=TRUE)
+tapply(GE$StockPrice,months(GE$Date),mean,na.rm=TRUE)#
+tapply(IBM$StockPrice,months(IBM$Date),mean,na.rm=TRUE)#
+tapply(CocaCola$StockPrice,months(CocaCola$Date),mean,na.rm=TRUE)#
+tapply(ProcterGamble$StockPrice,months(ProcterGamble$Date),mean,na.rm=TRUE)#
+tapply(Boeing$StockPrice,months(Boeing$Date),mean,na.rm=TRUE)

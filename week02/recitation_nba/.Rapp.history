@@ -1,0 +1,48 @@
+sd(c(5,8,12))
+which.min(c(4,1,6))
+sq.root=2
+ls()
+sq.root
+sq_root=4
+sq_root
+ls()
+sq root=2
+demo
+demo()
+colors()
+sd(c(5,8,12))
+which.min(c(4,1,6))
+c(4,1,6)
+min(c(4,1,6))
+which?
+?which
+exit
+quit
+quit()
+mvt = read.csv("mvtWeek1.csv")
+str(mvt)
+str(mvt)
+max(mvt$ID)
+mvt$Date[1]
+DateConvert = as.Date(strptime(mvt$Date, "%m/%d/%y %H:%M"))
+summary(DateConvert)
+mvt$Month = months(DateConvert)
+mvt$Weekday = weekdays(DateConvert)
+mvt$Date = DateConvert
+table(mvt$Month)
+table(mvt$Weekday)
+tapply(mvt$Arrest,mvt$Month,sum)
+hist(mvt$Date, breaks=100)
+Top5 = subset(mvt, LocationDescription == "STREET" | LocationDescription == "PARKING LOT/GARAGE(NON.RESID.)" | LocationDescription == "ALLEY" | LocationDescription == "GAS STATION" | LocationDescription == "DRIVEWAY - RESIDENTIAL"  )
+Top5$LocationDescription = factor(Top5$LocationDescription)
+table(Top5$Arrest,Top5$LocationDescription)
+boxplot(mvt$Date ~ mvt$Arrest)
+hist(mvt$Date, breaks=100)
+NBA = read.csv("NBA_train.csv")
+table(NBA$W, NBA$Playoffs)
+NBA$PTSdiff = NBA$PTS - NBA$oppPTS
+plot(NBA$PTSdiff, NBA$W)
+WinsReg = lm(W ~ PTSdiff, data=NBA)
+summary(WinsReg)
+plot(NBA$PTSdiff, NBA$W)
+plot(NBA$PTSdiff, NBA$W)

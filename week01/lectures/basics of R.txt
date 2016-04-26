@@ -1,0 +1,399 @@
+
+R version 3.0.2 (2013-09-25) -- "Frisbee Sailing"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin10.8.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+During startup - Warning messages:
+1: Setting LC_CTYPE failed, using "C" 
+2: Setting LC_COLLATE failed, using "C" 
+3: Setting LC_TIME failed, using "C" 
+4: Setting LC_MESSAGES failed, using "C" 
+5: Setting LC_MONETARY failed, using "C" 
+[R.app GUI 1.62 (6558) x86_64-apple-darwin10.8.0]
+
+WARNING: You're using a non-UTF8 locale, therefore only ASCII characters will work.
+Please read R for Mac OS X FAQ (see Help) section 9 and adjust your system preferences accordingly.
+[History restored from /Users/marcellopontes/.Rapp.history]
+
+> le = c(75,79,90,38,102)
+> co = c("Brasil","Peru","USA","Angola","Japan" )
+> Data = data.frame(le,co)
+> Data
+   le     co
+1  75 Brasil
+2  79   Peru
+3  90    USA
+4  38 Angola
+5 102  Japan
+> pop = c(199000,1390000,1240000,7997,318000)
+> Data2 = cbind(Data,pop)
+> Data2
+   le     co     pop
+1  75 Brasil  199000
+2  79   Peru 1390000
+3  90    USA 1240000
+4  38 Angola    7997
+5 102  Japan  318000
+> 
+> 
+> 
+> 
+> getwd
+function () 
+.Internal(getwd())
+<bytecode: 0x100bfe240>
+<environment: namespace:base>
+> getwd()
+[1] "/Users/marcellopontes/Documents/Pessoal/course_challenges/week01/lectures"
+> WHO=read.csv("WHO.csv")
+> str(WHO)
+'data.frame':	194 obs. of  13 variables:
+ $ Country                      : Factor w/ 194 levels "Afghanistan",..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ Region                       : Factor w/ 6 levels "Africa","Americas",..: 3 4 1 4 1 2 2 4 6 4 ...
+ $ Population                   : int  29825 3162 38482 78 20821 89 41087 2969 23050 8464 ...
+ $ Under15                      : num  47.4 21.3 27.4 15.2 47.6 ...
+ $ Over60                       : num  3.82 14.93 7.17 22.86 3.84 ...
+ $ FertilityRate                : num  5.4 1.75 2.83 NA 6.1 2.12 2.2 1.74 1.89 1.44 ...
+ $ LifeExpectancy               : int  60 74 73 82 51 75 76 71 82 81 ...
+ $ ChildMortality               : num  98.5 16.7 20 3.2 163.5 ...
+ $ CellularSubscribers          : num  54.3 96.4 99 75.5 48.4 ...
+ $ LiteracyRate                 : num  NA NA NA NA 70.1 99 97.8 99.6 NA NA ...
+ $ GNI                          : num  1140 8820 8310 NA 5230 ...
+ $ PrimarySchoolEnrollmentMale  : num  NA NA 98.2 78.4 93.1 91.1 NA NA 96.9 NA ...
+ $ PrimarySchoolEnrollmentFemale: num  NA NA 96.4 79.4 78.2 84.5 NA NA 97.5 NA ...
+> summary(WHO)
+                Country                      Region     Population         Under15          Over60      FertilityRate  
+ Afghanistan        :  1   Africa               :46   Min.   :      1   Min.   :13.12   Min.   : 0.81   Min.   :1.260  
+ Albania            :  1   Americas             :35   1st Qu.:   1696   1st Qu.:18.72   1st Qu.: 5.20   1st Qu.:1.835  
+ Algeria            :  1   Eastern Mediterranean:22   Median :   7790   Median :28.65   Median : 8.53   Median :2.400  
+ Andorra            :  1   Europe               :53   Mean   :  36360   Mean   :28.73   Mean   :11.16   Mean   :2.941  
+ Angola             :  1   South-East Asia      :11   3rd Qu.:  24535   3rd Qu.:37.75   3rd Qu.:16.69   3rd Qu.:3.905  
+ Antigua and Barbuda:  1   Western Pacific      :27   Max.   :1390000   Max.   :49.99   Max.   :31.92   Max.   :7.580  
+ (Other)            :188                                                                                NA's   :11     
+ LifeExpectancy  ChildMortality    CellularSubscribers  LiteracyRate        GNI        PrimarySchoolEnrollmentMale
+ Min.   :47.00   Min.   :  2.200   Min.   :  2.57      Min.   :31.10   Min.   :  340   Min.   : 37.20             
+ 1st Qu.:64.00   1st Qu.:  8.425   1st Qu.: 63.57      1st Qu.:71.60   1st Qu.: 2335   1st Qu.: 87.70             
+ Median :72.50   Median : 18.600   Median : 97.75      Median :91.80   Median : 7870   Median : 94.70             
+ Mean   :70.01   Mean   : 36.149   Mean   : 93.64      Mean   :83.71   Mean   :13321   Mean   : 90.85             
+ 3rd Qu.:76.00   3rd Qu.: 55.975   3rd Qu.:120.81      3rd Qu.:97.85   3rd Qu.:17558   3rd Qu.: 98.10             
+ Max.   :83.00   Max.   :181.600   Max.   :196.41      Max.   :99.80   Max.   :86440   Max.   :100.00             
+                                   NA's   :10          NA's   :91      NA's   :32      NA's   :93                 
+ PrimarySchoolEnrollmentFemale
+ Min.   : 32.50               
+ 1st Qu.: 87.30               
+ Median : 95.10               
+ Mean   : 89.63               
+ 3rd Qu.: 97.90               
+ Max.   :100.00               
+ NA's   :93                   
+> WHO_Europe = subset(WHO , Region == "Europe")
+> 
+> 
+> 
+> str(WHO_Europe)
+'data.frame':	53 obs. of  13 variables:
+ $ Country                      : Factor w/ 194 levels "Afghanistan",..: 2 4 8 10 11 16 17 22 26 42 ...
+ $ Region                       : Factor w/ 6 levels "Africa","Americas",..: 4 4 4 4 4 4 4 4 4 4 ...
+ $ Population                   : int  3162 78 2969 8464 9309 9405 11060 3834 7278 4307 ...
+ $ Under15                      : num  21.3 15.2 20.3 14.5 22.2 ...
+ $ Over60                       : num  14.93 22.86 14.06 23.52 8.24 ...
+ $ FertilityRate                : num  1.75 NA 1.74 1.44 1.96 1.47 1.85 1.26 1.51 1.48 ...
+ $ LifeExpectancy               : int  74 82 71 81 71 71 80 76 74 77 ...
+ $ ChildMortality               : num  16.7 3.2 16.4 4 35.2 5.2 4.2 6.7 12.1 4.7 ...
+ $ CellularSubscribers          : num  96.4 75.5 103.6 154.8 108.8 ...
+ $ LiteracyRate                 : num  NA NA 99.6 NA NA NA NA 97.9 NA 98.8 ...
+ $ GNI                          : num  8820 NA 6100 42050 8960 ...
+ $ PrimarySchoolEnrollmentMale  : num  NA 78.4 NA NA 85.3 NA 98.9 86.5 99.3 94.8 ...
+ $ PrimarySchoolEnrollmentFemale: num  NA 79.4 NA NA 84.1 NA 99.2 88.4 99.7 97 ...
+> 
+> 
+> 
+> 
+> str(WHO_Europe)
+'data.frame':	53 obs. of  13 variables:
+ $ Country                      : Factor w/ 194 levels "Afghanistan",..: 2 4 8 10 11 16 17 22 26 42 ...
+ $ Region                       : Factor w/ 6 levels "Africa","Americas",..: 4 4 4 4 4 4 4 4 4 4 ...
+ $ Population                   : int  3162 78 2969 8464 9309 9405 11060 3834 7278 4307 ...
+ $ Under15                      : num  21.3 15.2 20.3 14.5 22.2 ...
+ $ Over60                       : num  14.93 22.86 14.06 23.52 8.24 ...
+ $ FertilityRate                : num  1.75 NA 1.74 1.44 1.96 1.47 1.85 1.26 1.51 1.48 ...
+ $ LifeExpectancy               : int  74 82 71 81 71 71 80 76 74 77 ...
+ $ ChildMortality               : num  16.7 3.2 16.4 4 35.2 5.2 4.2 6.7 12.1 4.7 ...
+ $ CellularSubscribers          : num  96.4 75.5 103.6 154.8 108.8 ...
+ $ LiteracyRate                 : num  NA NA 99.6 NA NA NA NA 97.9 NA 98.8 ...
+ $ GNI                          : num  8820 NA 6100 42050 8960 ...
+ $ PrimarySchoolEnrollmentMale  : num  NA 78.4 NA NA 85.3 NA 98.9 86.5 99.3 94.8 ...
+ $ PrimarySchoolEnrollmentFemale: num  NA 79.4 NA NA 84.1 NA 99.2 88.4 99.7 97 ...
+> write.csv(WHO_Europe, "WHO_Europe.csv")
+> 
+> 
+> 
+> ls
+function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, 
+    pattern) 
+{
+    if (!missing(name)) {
+        nameValue <- try(name, silent = TRUE)
+        if (identical(class(nameValue), "try-error")) {
+            name <- substitute(name)
+            if (!is.character(name)) 
+                name <- deparse(name)
+            warning(gettextf("%s converted to character string", 
+                sQuote(name)), domain = NA)
+            pos <- name
+        }
+        else pos <- nameValue
+    }
+    all.names <- .Internal(ls(envir, all.names))
+    if (!missing(pattern)) {
+        if ((ll <- length(grep("[", pattern, fixed = TRUE))) && 
+            ll != length(grep("]", pattern, fixed = TRUE))) {
+            if (pattern == "[") {
+                pattern <- "\\["
+                warning("replaced regular expression pattern '[' by  '\\\\['")
+            }
+            else if (length(grep("[^\\\\]\\[<-", pattern))) {
+                pattern <- sub("\\[<-", "\\\\\\[<-", pattern)
+                warning("replaced '[<-' by '\\\\[<-' in regular expression pattern")
+            }
+        }
+        grep(pattern, all.names, value = TRUE)
+    }
+    else all.names
+}
+<bytecode: 0x1018ff0a8>
+<environment: namespace:base>
+> 
+> 
+> 
+> 
+> 
+> ls()
+[1] "Data"       "Data2"      "WHO"        "WHO_Europe" "co"         "le"         "pop"       
+> rm("WHO_Europe")
+> ls()
+[1] "Data"  "Data2" "WHO"   "co"    "le"    "pop"  
+> 
+> 
+> 
+> 
+> 
+> 
+> ?str
+starting httpd help server ... done
+> 
+> 
+> WHO$Under15
+  [1] 47.42 21.33 27.42 15.20 47.58 25.96 24.42 20.34 18.95 14.51 22.25 21.62 20.16 30.57 18.99 15.10 16.88 34.40 42.95 28.53 35.23 16.35 33.75 24.56 25.75 13.53
+ [27] 45.66 44.20 31.23 43.08 16.37 30.17 40.07 48.52 21.38 17.95 28.03 42.17 42.37 30.61 23.94 41.48 14.98 16.58 17.16 14.56 21.98 45.11 17.66 33.72 25.96 30.53
+ [53] 30.29 31.25 30.62 38.95 43.10 15.69 43.29 28.88 16.42 18.26 38.49 45.90 17.62 13.17 38.59 14.60 26.96 40.80 42.46 41.55 36.77 35.35 35.72 14.62 20.71 29.43
+ [79] 29.27 23.68 40.51 21.54 27.53 14.04 27.78 13.12 34.13 25.46 42.37 30.10 24.90 30.21 35.61 14.57 21.64 36.75 43.06 29.45 15.13 17.46 42.72 45.44 26.65 29.03
+[105] 47.14 14.98 30.10 40.22 20.17 29.02 35.81 18.26 27.05 19.01 27.85 45.38 25.28 36.59 30.10 35.58 17.21 20.26 33.37 49.99 44.23 30.61 18.64 24.19 34.31 30.10
+[131] 28.65 38.37 32.78 29.18 34.53 14.91 14.92 13.28 15.25 16.52 15.05 15.45 43.56 25.96 24.31 25.70 37.88 14.04 41.60 29.69 43.54 16.45 21.95 41.74 16.48 15.00
+[157] 14.16 40.37 47.35 29.53 42.28 15.20 25.15 41.48 27.83 38.05 16.71 14.79 35.35 35.75 18.47 16.89 46.33 41.89 37.33 20.73 23.22 26.00 28.65 30.61 48.54 14.18
+[183] 14.41 17.54 44.85 19.63 22.05 28.90 37.37 28.84 22.87 40.72 46.73 40.24
+> mean(WHO$Under15)
+[1] 28.73242
+> sd(WHO$Under15)
+[1] 10.53457
+> summary(WHO$Under15)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  13.12   18.72   28.65   28.73   37.75   49.99 
+> which.min(WHO$Under15)
+[1] 86
+> WHO$Country[86]
+[1] Japan
+194 Levels: Afghanistan Albania Algeria Andorra Angola Antigua and Barbuda Argentina Armenia Australia Austria Azerbaijan Bahamas Bahrain Bangladesh ... Zimbabwe
+> which.max(WHO$Under15)
+[1] 124
+> plot(WHO$GNI,WHO$FertilityRate)
+> Outliers - subset(WHO, GNI > 10000 & FertilityRate > 2.5)
+Error: object 'Outliers' not found
+> Outliers = subset(WHO, GNI > 10000 & FertilityRate > 2.5)
+> nrow(Outliers)
+[1] 7
+> Outliers[c("Country","GNI","FertilityRate")]
+              Country   GNI FertilityRate
+23           Botswana 14550          2.71
+56  Equatorial Guinea 25620          5.04
+63              Gabon 13740          4.18
+83             Israel 27110          2.92
+88         Kazakhstan 11250          2.52
+131            Panama 14510          2.52
+150      Saudi Arabia 24700          2.76
+> hist(WHO$CellularSubscribers)
+> bixplot(WHO$LifeExpectancy ~ WHO$Region)
+Error: could not find function "bixplot"
+> boxplot(WHO$LifeExpectancy ~ WHO$Region)
+> boxplot(WHO$LifeExpectancy ~ WHO$Region, xlab = "Region", ylab = "Life Expectancy", main = "Life Expectancy of Countries by Region")
+> table(WHO$Region)
+
+               Africa              Americas Eastern Mediterranean                Europe       South-East Asia       Western Pacific 
+                   46                    35                    22                    53                    11                    27 
+> tapply(WHO$Over60, WHO$Region, mean)
+               Africa              Americas Eastern Mediterranean                Europe       South-East Asia       Western Pacific 
+             5.220652             10.943714              5.620000             19.774906              8.769091             10.162963 
+> tapply(WHO$LiteracyRate, WHO$Region, min)
+               Africa              Americas Eastern Mediterranean                Europe       South-East Asia       Western Pacific 
+                   NA                    NA                    NA                    NA                    NA                    NA 
+> tapply(WHO$LiteracyRate, WHO$Region, min, na.rm=TRUE)
+               Africa              Americas Eastern Mediterranean                Europe       South-East Asia       Western Pacific 
+                 31.1                  75.2                  63.9                  95.2                  56.8                  60.6 
+> mean(WHO$Over60)
+[1] 11.16366
+> tapply(WHO$Population, WHO$Country, min, na.rm=TRUE)
+                              Afghanistan                                   Albania                                   Algeria 
+                                    29825                                      3162                                     38482 
+                                  Andorra                                    Angola                       Antigua and Barbuda 
+                                       78                                     20821                                        89 
+                                Argentina                                   Armenia                                 Australia 
+                                    41087                                      2969                                     23050 
+                                  Austria                                Azerbaijan                                   Bahamas 
+                                     8464                                      9309                                       372 
+                                  Bahrain                                Bangladesh                                  Barbados 
+                                     1318                                    155000                                       283 
+                                  Belarus                                   Belgium                                    Belize 
+                                     9405                                     11060                                       324 
+                                    Benin                                    Bhutan          Bolivia (Plurinational State of) 
+                                    10051                                       742                                     10496 
+                   Bosnia and Herzegovina                                  Botswana                                    Brazil 
+                                     3834                                      2004                                    199000 
+                        Brunei Darussalam                                  Bulgaria                              Burkina Faso 
+                                      412                                      7278                                     16460 
+                                  Burundi                                  Cambodia                                  Cameroon 
+                                     9850                                     14865                                     21700 
+                                   Canada                                Cape Verde                  Central African Republic 
+                                    34838                                       494                                      4525 
+                                     Chad                                     Chile                                     China 
+                                    12448                                     17465                                   1390000 
+                                 Colombia                                   Comoros                                     Congo 
+                                    47704                                       718                                      4337 
+                             Cook Islands                                Costa Rica                                   Croatia 
+                                       21                                      4805                                      4307 
+                                     Cuba                                    Cyprus                            Czech Republic 
+                                    11271                                      1129                                     10660 
+                         C\252te d'Ivoire     Democratic People's Republic of Korea          Democratic Republic of the Congo 
+                                    19840                                     24763                                     65705 
+                                  Denmark                                  Djibouti                                  Dominica 
+                                     5598                                       860                                        72 
+                       Dominican Republic                                   Ecuador                                     Egypt 
+                                    10277                                     15492                                     80722 
+                              El Salvador                         Equatorial Guinea                                   Eritrea 
+                                     6297                                       736                                      6131 
+                                  Estonia                                  Ethiopia                                      Fiji 
+                                     1291                                     91729                                       875 
+                                  Finland                                    France                                     Gabon 
+                                     5408                                     63937                                      1633 
+                                   Gambia                                   Georgia                                   Germany 
+                                     1791                                      4358                                     82800 
+                                    Ghana                                    Greece                                   Grenada 
+                                    25366                                     11125                                       105 
+                                Guatemala                                    Guinea                             Guinea-Bissau 
+                                    15083                                     11451                                      1664 
+                                   Guyana                                     Haiti                                  Honduras 
+                                      795                                     10174                                      7936 
+                                  Hungary                                   Iceland                                     India 
+                                     9976                                       326                                   1240000 
+                                Indonesia                Iran (Islamic Republic of)                                      Iraq 
+                                   247000                                     76424                                     32778 
+                                  Ireland                                    Israel                                     Italy 
+                                     4576                                      7644                                     60885 
+                                  Jamaica                                     Japan                                    Jordan 
+                                     2769                                    127000                                      7009 
+                               Kazakhstan                                     Kenya                                  Kiribati 
+                                    16271                                     43178                                       101 
+                                   Kuwait                                Kyrgyzstan          Lao People's Democratic Republic 
+                                     3250                                      5474                                      6646 
+                                   Latvia                                   Lebanon                                   Lesotho 
+                                     2060                                      4647                                      2052 
+                                  Liberia                                     Libya                                 Lithuania 
+                                     4190                                      6155                                      3028 
+                               Luxembourg                                Madagascar                                    Malawi 
+                                      524                                     22294                                     15906 
+                                 Malaysia                                  Maldives                                      Mali 
+                                    29240                                       338                                     14854 
+                                    Malta                          Marshall Islands                                Mauritania 
+                                      428                                        53                                      3796 
+                                Mauritius                                    Mexico          Micronesia (Federated States of) 
+                                     1240                                    121000                                       103 
+                                   Monaco                                  Mongolia                                Montenegro 
+                                       38                                      2796                                       621 
+                                  Morocco                                Mozambique                                   Myanmar 
+                                    32521                                     25203                                     52797 
+                                  Namibia                                     Nauru                                     Nepal 
+                                     2259                                        10                                     27474 
+                              Netherlands                               New Zealand                                 Nicaragua 
+                                    16714                                      4460                                      5992 
+                                    Niger                                   Nigeria                                      Niue 
+                                    17157                                    169000                                         1 
+                                   Norway                                      Oman                                  Pakistan 
+                                     4994                                      3314                                    179000 
+                                    Palau                                    Panama                          Papua New Guinea 
+                                       21                                      3802                                      7167 
+                                 Paraguay                                      Peru                               Philippines 
+                                     6687                                     29988                                     96707 
+                                   Poland                                  Portugal                                     Qatar 
+                                    38211                                     10604                                      2051 
+                        Republic of Korea                       Republic of Moldova                                   Romania 
+                                    49003                                      3514                                     21755 
+                       Russian Federation                                    Rwanda                     Saint Kitts and Nevis 
+                                   143000                                     11458                                        54 
+                              Saint Lucia          Saint Vincent and the Grenadines                                     Samoa 
+                                      181                                       109                                       189 
+                               San Marino                     Sao Tome and Principe                              Saudi Arabia 
+                                       31                                       188                                     28288 
+                                  Senegal                                    Serbia                                Seychelles 
+                                    13726                                      9553                                        92 
+                             Sierra Leone                                 Singapore                                  Slovakia 
+                                     5979                                      5303                                      5446 
+                                 Slovenia                           Solomon Islands                                   Somalia 
+                                     2068                                       550                                     10195 
+                             South Africa                               South Sudan                                     Spain 
+                                    52386                                     10838                                     46755 
+                                Sri Lanka                                     Sudan                                  Suriname 
+                                    21098                                     37195                                       535 
+                                Swaziland                                    Sweden                               Switzerland 
+                                     1231                                      9511                                      7997 
+                     Syrian Arab Republic                                Tajikistan                                  Thailand 
+                                    21890                                      8009                                     66785 
+The former Yugoslav Republic of Macedonia                               Timor-Leste                                      Togo 
+                                     2106                                      1114                                      6643 
+                                    Tonga                       Trinidad and Tobago                                   Tunisia 
+                                      105                                      1337                                     10875 
+                                   Turkey                              Turkmenistan                                    Tuvalu 
+                                    73997                                      5173                                        10 
+                                   Uganda                                   Ukraine                      United Arab Emirates 
+                                    36346                                     45530                                      9206 
+                           United Kingdom               United Republic of Tanzania                  United States of America 
+                                    62783                                     47783                                    318000 
+                                  Uruguay                                Uzbekistan                                   Vanuatu 
+                                     3395                                     28541                                       247 
+       Venezuela (Bolivarian Republic of)                                  Viet Nam                                     Yemen 
+                                    29955                                     90796                                     23852 
+                                   Zambia                                  Zimbabwe 
+                                    14075                                     13724 
+> which.min(WHO$Over60)
+[1] 183
+> WHO$Country[183]
+[1] United Arab Emirates
+194 Levels: Afghanistan Albania Algeria Andorra Angola Antigua and Barbuda Argentina Armenia Australia Austria Azerbaijan Bahamas Bahrain Bangladesh ... Zimbabwe
+> which.max(WHO$LiteracyRate)
+[1] 44
+> WHO$Country[44]
+[1] Cuba
+194 Levels: Afghanistan Albania Algeria Andorra Angola Antigua and Barbuda Argentina Armenia Australia Austria Azerbaijan Bahamas Bahrain Bangladesh ... Zimbabwe
+> 

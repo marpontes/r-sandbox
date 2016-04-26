@@ -1,0 +1,135 @@
+sd(c(5,8,12))
+which.min(c(4,1,6))
+sq.root=2
+ls()
+sq.root
+sq_root=4
+sq_root
+ls()
+sq root=2
+demo
+demo()
+colors()
+sd(c(5,8,12))
+which.min(c(4,1,6))
+c(4,1,6)
+min(c(4,1,6))
+which?
+?which
+exit
+quit
+quit()
+songs = read.csv("songs.csv")
+songs = read.csv("songs.csv")
+summary(song
+str(songs)#
+  summary(songs)
+SongsTrain = subset(songs,year<=2009)#
+  SongsTest =  subset(songs,year==2010)#
+  str(SongsTrain)
+SongsLog1 = glm(Top10 ~ timesignature + timesignature_confidence + loudness + tempo + tempo_confidence + key + key_confidence + energy + pitch + timbre_0_min + timbre_0_max + timbre_1_min + timbre_1_max + timbre_2_min + timbre_2_max + timbre_3_min + timbre_3_max + timbre_4_min + timbre_4_max + timbre_5_min + timbre_5_max + timbre_6_min + timbre_6_max + timbre_7_min + timbre_7_max + timbre_8_min + timbre_8_max + timbre_9_min + timbre_9_max + timbre_10_min + timbre_10_max + timbre_11_min + timbre_11_max, data=SongsTrain, family=binomial)
+nonvars = c("year", "songtitle", "artistname", "songID", "artistID")
+SongsTrain = SongsTrain[ , !(names(SongsTrain) %in% nonvars) ]
+str(SongsTrain)
+SongsTest = SongsTest[ , !(names(SongsTest) %in% nonvars) ]
+SongsLog1 = glm(Top10 ~ ., data=SongsTrain, family=binomial)
+summary(SongsLog1)
+1/(exp(-100))
+1/(exp(-10))
+1/(1+exp(-10))
+1/(1+exp(-100))
+1/(1+exp(-90))
+1/(1+exp(-90000))
+?cor
+cor(SongsTrain$loudness,SongsTrain$energy)
+SongsLog2 = glm(Top10 ~ . - loudness, data=SongsTrain, family=binomial)
+summary(SongsLog2)
+SongsLog3 = glm(Top10 ~ . - energy, data=SongsTrain, family=binomial)#
+  summary(SongsLog3)
+TestPrediction = predict(SongsLog3, newdata= SongsTest, type="response")
+table(SongsTest$Top10, TestPrediction >= 0.45)
+acc = (19+309)/(19+309+40+5)
+acc
+table(SongsTest$Top10 == 0)
+314/(314+59)
+19/(19+40)
+309/(309+5)
+table(SongsTest$Top10, TestPrediction >= 0.65)
+table(SongsTest$Top10, TestPrediction >= 0.55)
+table(SongsTest$Top10, TestPrediction >= 0.50)
+table(SongsTest$Top10, TestPrediction >= 0.45)
+read.csv("baseball.csv")
+bb=read.csv("baseball.csv")
+baseball=read.csv("baseball.csv")
+str(baseball)
+table(baseball$year)
+table(baseball$Year)
+nrow(table(baseball$Year))
+baseball = subset(baseball, Playoffs==1)
+str(baseball)
+table(baseball$Year)
+PlayoffTable = table(baseball$Year)
+PlayOffTable
+PlayoffTable
+names(PlayoffTable)
+PlayoffTable[c("1990", "2001")]
+baseball$NumCompetitors = PlayoffTable[baseball$Year]
+baseball$NumCompetitors
+baseball$NumCompetitors = PlayoffTable[as.character(baseball$Year)]
+baseball$NumCompetitors
+str(baseball)
+table(baseball$NumCompetitors)
+baseball$WorldSeries = as.numeric(baseball$RankPlayoffs == 1)
+table(baseball$WorldSeries)
+str(baseball)
+mod01 = glm(WorldSeries ~ Year , data= baseball, family=binomial)#
+  summary(mod01)#
+          mod02 = glm(WorldSeries ~ RS , data= baseball, family=binomial)#
+  summary(mod02)#
+          mod03 = glm(WorldSeries ~ RA , data= baseball, family=binomial)#
+  summary(mod03)#
+          mod04 = glm(WorldSeries ~ W , data= baseball, family=binomial)#
+  summary(mod04)#
+          mod05 = glm(WorldSeries ~ OBP , data= baseball, family=binomial)#
+  summary(mod05)#
+          mod06 = glm(WorldSeries ~ SLG , data= baseball, family=binomial)#
+  summary(mod06)#
+          mod07 = glm(WorldSeries ~ BA , data= baseball, family=binomial)#
+  summary(mod07)#
+          mod08 = glm(WorldSeries ~ RankSeason , data= baseball, family=binomial)#
+  summary(mod08)#
+          mod09 = glm(WorldSeries ~ G , data= baseball, family=binomial)#
+  summary(mod09)#
+          mod10 = glm(WorldSeries ~ OOBP , data= baseball, family=binomial)#
+  summary(mod10)#
+          mod11 = glm(WorldSeries ~ OSLG , data= baseball, family=binomial)#
+  summary(mod11)#
+          mod11 = glm(WorldSeries ~ League , data= baseball, family=binomial)#
+  summary(mod11)
+mod09 = glm(WorldSeries ~ NumCompetitors , data= baseball, family=binomial)#
+  summary(mod09)
+model = glm(WorldSeries ~ Year + RA + RankSeason + NumCompetitors , data= baseball, family=binomial)
+summary(model)
+cor(baseball[c("Year","RA","RankSeason","NumCompetitors")])
+xmod04 = glm(WorldSeries ~ RA+RankSeason , data= baseball, family=binomial)
+mod09 = glm(WorldSeries ~ NumCompetitors , data= baseball, family=binomial)#
+  summary(mod09)#
+  mod08 = glm(WorldSeries ~ RankSeason , data= baseball, family=binomial)#
+  summary(mod08)#
+  mod03 = glm(WorldSeries ~ RA , data= baseball, family=binomial)#
+  summary(mod03)#
+  mod01 = glm(WorldSeries ~ Year , data= baseball, family=binomial)#
+  summary(mod01)#
+#
+  xmod01 = glm(WorldSeries ~ Year+RA , data= baseball, family=binomial)#
+  summary(xmod01)#
+  xmod02 = glm(WorldSeries ~ Year+RankSeason , data= baseball, family=binomial)#
+  summary(xmod02)#
+  xmod03 = glm(WorldSeries ~ Year+NumCompetitors , data= baseball, family=binomial)#
+  summary(xmod03)#
+  xmod04 = glm(WorldSeries ~ RA+RankSeason , data= baseball, family=binomial)#
+  summary(xmod04)#
+  xmod05 = glm(WorldSeries ~ RA+NumCompetitors , data= baseball, family=binomial)#
+  summary(xmod05)#
+  xmod06 = glm(WorldSeries ~ RankSeason+NumCompetitors , data= baseball, family=binomial)#
+  summary(xmod06)
